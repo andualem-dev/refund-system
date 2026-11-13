@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Refund Request</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <article class="card" aria-labelledby="form-title">
+        <header class="card-header">
+          <h1 id="form-title">Refund Request</h1>
+          <p class="subtitle">Submit an internal request for project-related refunds.</p>
+        </header>
+
+        <div id="form-message" class="form-message" role="status" aria-live="polite" hidden></div>
+
+        <form id="refund-form" novalidate>
+          <div class="field">
+            <label for="employee-name">Employee <span class="required" aria-hidden="true">*</span></label>
+            <select id="employee-name" name="name" required>
+              <option value="" disabled selected>Select your name</option>
+            </select>
+            <span class="field-error" id="error-name" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="project-name">Project Name <span class="required" aria-hidden="true">*</span></label>
+            <input
+              type="text"
+              id="project-name"
+              name="project"
+              required
+              autocomplete="organization"
+              placeholder="Project Alpha"
+            />
+            <span class="field-error" id="error-project" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="refund-amount">Refund Amount <span class="required" aria-hidden="true">*</span></label>
+            <div class="amount-input-wrap">
+              <span class="currency-symbol" aria-hidden="true">$</span>
+              <input
+                type="number"
+                id="refund-amount"
+                name="amount"
+                required
+                min="0.01"
+                step="0.01"
+                inputmode="decimal"
+                placeholder="0.00"
+              />
+            </div>
+            <span class="field-error" id="error-amount" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="purpose">Purpose / Reason for Refund <span class="required" aria-hidden="true">*</span></label>
+            <textarea
+              id="purpose"
+              name="purpose"
+              required
+              rows="4"
+              placeholder="Describe why this refund is needed..."
+            ></textarea>
+            <span class="field-error" id="error-purpose" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="request-date">Date <span class="required" aria-hidden="true">*</span></label>
+            <input type="date" id="request-date" name="date" required />
+            <span class="field-error" id="error-date" role="alert"></span>
+          </div>
+
+          <button type="submit" id="submit-btn" class="submit-btn">
+            <span class="btn-label">Submit Request</span>
+            <span class="btn-spinner" aria-hidden="true" hidden></span>
+          </button>
+        </form>
+      </article>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
