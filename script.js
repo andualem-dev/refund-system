@@ -9,6 +9,7 @@ const EMPLOYEE_NAMES = [
   "Kidus",
   "Heldana",
   "Bement",
+  "Lulim",
 ];
 
 const form = document.getElementById("refund-form");
